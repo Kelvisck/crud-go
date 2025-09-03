@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  #go_db:
+   # container_name: go_db
+    #image: postgres:12
+    #environment:
+     # POSTGRES_PASSWORD: 1234
+     # POSTGRES_USER: postgres
+      #POSTGRES_DB: postgres
+    #ports:
+     # - "5432:5432"
+    #volumes:
+     # - pgdata:/data/lib/postgresql/data
+
+  mongo:
+    container_name: go_mongo
+    image: mongo:6
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  # pgdata:
+  mongodata:
